@@ -9,7 +9,7 @@ N="\e[0m"
 
 #Date #ScriptName #Logfile
 TIME_STAMP=$(date +%F-%H-%M-%S)
-SCRIPT_NAME=$(echo "$?" | cut -d "." -f1)
+SCRIPT_NAME=$(echo "$0" | cut -d "." -f1)
 LOGFILE=/tmp/$SCRIPT_NAME+$TIME_STAMP.log
 
 
@@ -87,7 +87,7 @@ dnf install mysql -y &>>$LOGFILE
 VALIDATE $? "Installing MySQL Client"
 
 # mysql -h db.happywithyogamoney.fun -uroot -p${DB_Password} < /app/schema/backend.sql &>>$LOGFILE
-mysql -h db.happywithyogamoney.fun -uroot -p${DB_Password} < /app/schema/backend.sql
+mysql -h 172.31.20.147 -uroot -p${DB_Password} < /app/schema/backend.sql
 VALIDATE $? "Schema loading"
 
 
