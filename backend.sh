@@ -86,8 +86,10 @@ VALIDATE $? "Enabling backend"
 dnf install mysql -y &>>$LOGFILE
 VALIDATE $? "Installing MySQL Client"
 
-mysql -h db.happywithyogamoney.fun -uroot -p${DB_Password} < /app/schema/backend.sql &>>$LOGFILE
+# mysql -h db.happywithyogamoney.fun -uroot -p${DB_Password} < /app/schema/backend.sql &>>$LOGFILE
+mysql -h db.happywithyogamoney.fun -uroot -p${DB_Password} < /app/schema/backend.sql
 VALIDATE $? "Schema loading"
+
 
 systemctl restart backend &>>$LOGFILE
 VALIDATE $? "Restarting Backend"
