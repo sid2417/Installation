@@ -10,7 +10,7 @@ N="\e[0m"
 #Date #ScriptName #Logfile
 TIME_STAMP=$(date +%F-%H-%M-%S)
 SCRIPT_NAME=$(echo "$?" | cut -d "." -f1)
-LOG_FILE=/tmp/$SCRIPT_NAME+$TIME_STAMP.log
+LOGFILE=/tmp/$SCRIPT_NAME+$TIME_STAMP.log
 
 
 
@@ -37,13 +37,13 @@ VALIDATE ()
 }
 
 
-dnf module disable nodejs -y
+dnf module disable nodejs -y &>>$LOGFILE
 VALIDATE $? "Disabling default nodejs"
 
-dnf module enable nodejs:20 -y
+dnf module enable nodejs:20 -y &>>$LOGFILE
 VALIDATE $? "Enabling nodejs:20 version"
 
-dnf install nodejs -y
+dnf install nodejs -y &>>$LOGFILE
 VALIDATE $? "Installing nodejs"
 
 id expense &>>$LOGFILE
