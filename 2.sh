@@ -66,4 +66,5 @@ fi
 
 echo -e "$Y MySQL installation is Going GOOD $N" 
 
+#db.happywithyogamoney.fun
 #ExpenseApp@1
