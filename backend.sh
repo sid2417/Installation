@@ -87,7 +87,7 @@ dnf install mysql -y &>>$LOGFILE
 VALIDATE $? "Installing MySQL Client"
 
 # mysql -h db.happywithyogamoney.fun -uroot -p${DB_Password} < /app/schema/backend.sql &>>$LOGFILE
-mysql -h 172.31.20.147 -uroot -pExpenseApp@1 < /app/schema/backend.sql
+mysql -h 172.31.25.145 -uroot -pExpenseApp@1 < /app/schema/backend.sql
 VALIDATE $? "Schema loading"
 
 
